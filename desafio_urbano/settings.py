@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'desafio_urbano.processo',
+    'desafio_urbano.cadastro_processo',
 ]
 
 MIDDLEWARE = [
