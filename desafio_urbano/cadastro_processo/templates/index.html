@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,20 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Processo</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<h1>Cadastrar Processo</h1>
-{% if messages %}
-{% for message in messages %}
-<div>
-    <p>{{ message }}</p>
+<div align="center">
+    <h1>Cadastrar Processo</h1>
+
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert-success">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <p>Cadastro realizado com sucesso</p>
+    </div>
+    {% endfor %}
+    {% endif %}
 </div>
-{% endfor %}
-{% endif %}
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Salvar</button>
-</form>
 </body>
 </html>
