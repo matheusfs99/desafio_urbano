@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Processo</title>
+</head>
+<body>
+<h1>Cadastrar Processo</h1>
+{% if messages %}
+{% for message in messages %}
+<div>
+    <p>{{ message }}</p>
+</div>
+{% endfor %}
+{% endif %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>
